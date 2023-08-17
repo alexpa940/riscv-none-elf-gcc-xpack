@@ -1,5 +1,7 @@
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/xpack-dev-tools/riscv-none-elf-gcc-xpack)](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases)
-[![npm (scoped)](https://img.shields.io/npm/v/@xpack-dev-tools/riscv-none-elf-gcc.svg)](https://www.npmjs.com/package/@xpack-dev-tools/riscv-none-elf-gcc)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/xpack-dev-tools/riscv-none-elf-gcc-xpack)](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/blob/xpack/package.json)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/xpack-dev-tools/riscv-none-elf-gcc-xpack)](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/)
+[![npm (scoped)](https://img.shields.io/npm/v/@xpack-dev-tools/riscv-none-elf-gcc.svg?color=blue)](https://www.npmjs.com/package/@xpack-dev-tools/riscv-none-elf-gcc/)
+[![license](https://img.shields.io/github/license/xpack-dev-tools/riscv-none-elf-gcc-xpack)](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/blob/xpack/LICENSE)
 
 ## The xPack GNU RISC-V Embedded GCC
 
@@ -44,23 +46,29 @@ from the [`npmjs.com`](https://www.npmjs.com) registry.
 
 #### Prerequisites
 
-The only requirement is a recent
-`xpm`, which is a portable
-[Node.js](https://nodejs.org) command line application. To install it,
-follow the instructions from the
-[xpm](https://xpack.github.io/xpm/install/) page.
+A recent [xpm](https://xpack.github.io/xpm/),
+which is a portable [Node.js](https://nodejs.org/) command line application.
+
+It is recommended to update to the latest version with:
+
+```sh
+npm install --location=global xpm@latest
+```
+
+For details please follow the instructions in the
+[xPack install](https://xpack.github.io/install/) page.
 
 #### Install
 
 With the `xpm` tool available, installing
 the latest version of the package and adding it as
-a dependency for a project is quite easy:
+a development dependency for a project is quite easy:
 
 ```sh
 cd my-project
 xpm init # Only at first use.
 
-xpm install @xpack-dev-tools/riscv-none-elf-gcc@latest
+xpm install @xpack-dev-tools/riscv-none-elf-gcc@latest --verbose
 
 ls -l xpacks/.bin
 ```
@@ -84,16 +92,107 @@ For xPacks aware tools, like the **Eclipse Embedded C/C++ plug-ins**,
 it is also possible to install GNU RISC-V Embedded GCC globally, in the user home folder:
 
 ```sh
-xpm install --global @xpack-dev-tools/riscv-none-elf-gcc@latest
+xpm install --global @xpack-dev-tools/riscv-none-elf-gcc@latest --verbose
 ```
 
 Eclipse will automatically
 identify binaries installed with
 `xpm` and provide a convenient method to manage paths.
 
+After install, the package should create a structure like this (only the
+first two depth levels are shown):
+
+```console
+$ tree -L 2 /Users/ilg/Library/xPacks/\@xpack-dev-tools/riscv-none-elf-gcc/12.2.0-3/.content/
+/Users/ilg/Library/xPacks/\@xpack-dev-tools/riscv-none-elf-gcc/12.2.0-3/.content/
+├── README.md
+├── bin
+│   ├── riscv-none-elf-addr2line
+│   ├── riscv-none-elf-ar
+│   ├── riscv-none-elf-as
+│   ├── riscv-none-elf-c++
+│   ├── riscv-none-elf-c++filt
+│   ├── riscv-none-elf-cpp
+│   ├── riscv-none-elf-elfedit
+│   ├── riscv-none-elf-g++
+│   ├── riscv-none-elf-gcc
+│   ├── riscv-none-elf-gcc-12.2.0
+│   ├── riscv-none-elf-gcc-ar
+│   ├── riscv-none-elf-gcc-nm
+│   ├── riscv-none-elf-gcc-ranlib
+│   ├── riscv-none-elf-gcov
+│   ├── riscv-none-elf-gcov-dump
+│   ├── riscv-none-elf-gcov-tool
+│   ├── riscv-none-elf-gdb
+│   ├── riscv-none-elf-gdb-add-index
+│   ├── riscv-none-elf-gdb-add-index-py3
+│   ├── riscv-none-elf-gdb-py3
+│   ├── riscv-none-elf-gfortran
+│   ├── riscv-none-elf-gprof
+│   ├── riscv-none-elf-ld
+│   ├── riscv-none-elf-ld.bfd
+│   ├── riscv-none-elf-lto-dump
+│   ├── riscv-none-elf-nm
+│   ├── riscv-none-elf-objcopy
+│   ├── riscv-none-elf-objdump
+│   ├── riscv-none-elf-ranlib
+│   ├── riscv-none-elf-readelf
+│   ├── riscv-none-elf-size
+│   ├── riscv-none-elf-strings
+│   └── riscv-none-elf-strip
+├── distro-info
+│   ├── CHANGELOG.md
+│   ├── licenses
+│   ├── patches
+│   └── scripts
+├── include
+│   └── gdb
+├── lib
+│   ├── bfd-plugins
+│   ├── gcc
+│   ├── libcc1.0.so
+│   ├── libcc1.so -> libcc1.0.so
+│   └── python3.10
+├── libexec
+│   ├── gcc
+│   ├── libbz2.1.0.8.dylib
+│   ├── libcrypt.2.dylib
+│   ├── libcrypto.1.1.dylib
+│   ├── libexpat.1.8.8.dylib
+│   ├── libexpat.1.dylib -> libexpat.1.8.8.dylib
+│   ├── libffi.8.dylib
+│   ├── libgmp.10.dylib
+│   ├── libiconv.2.dylib
+│   ├── libisl.23.dylib
+│   ├── liblzma.5.dylib
+│   ├── libmpc.3.dylib
+│   ├── libmpfr.6.dylib
+│   ├── libncurses.6.dylib
+│   ├── libpanel.6.dylib
+│   ├── libpython3.10.dylib
+│   ├── libreadline.8.1.dylib
+│   ├── libreadline.8.dylib -> libreadline.8.1.dylib
+│   ├── libsqlite3.0.dylib
+│   ├── libssl.1.1.dylib
+│   ├── libz.1.2.12.dylib
+│   ├── libz.1.dylib -> libz.1.2.12.dylib
+│   └── libzstd.1.5.2.dylib
+├── riscv-none-elf
+│   ├── bin
+│   ├── include
+│   ├── lib
+│   └── share
+└── share
+    └── gcc-12.2.0
+
+20 directories, 59 files
+```
+
+No other files are installed in any system folders or other locations.
+
 #### Uninstall
 
-To remove the links from the current project:
+To remove the links created by xpm in the current project:
 
 ```sh
 cd my-project
@@ -123,26 +222,25 @@ For more details please read the
 ### Versioning
 
 The version strings used by the GCC project are three number strings
-like `12.1.0`; to this string the xPack distribution adds a four number,
+like `12.2.0`; to this string the xPack distribution adds a four number,
 but since semver allows only three numbers, all additional ones can
 be added only as pre-release strings, separated by a dash,
-like `12.2.0-1`.
+like `12.2.0-3`.
 When published as a npm package, the version gets
-a fifth number, like `12.2.0-1.1`.
+a fifth number, like `12.2.0-3.1`.
 
 Since adherence of third party packages to semver is not guaranteed,
-it is recommended to use semver expressions like `^12.1.0` and `~12.1.0`
-with caution, and prefer exact matches, like `12.2.0-1.1`.
+it is recommended to use semver expressions like `^12.2.0` and `~12.2.0`
+with caution, and prefer exact matches, like `12.2.0-3.1`.
 
 ## Maintainer info
 
-- [How to build](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/blob/xpack/README-BUILD.md)
-- [How to make new releases](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/blob/xpack/README-RELEASE.md)
-- [Developer info](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/blob/xpack/README-DEVELOP.md)
+For maintainer info, please see the
+[README-MAINTAINER](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/blob/xpack/README-MAINTAINER.md).
 
 ## Support
 
-The quick answer is to use the GitHub
+The quick advice for getting support is to use the GitHub
 [Discussions](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/discussions/).
 
 For more details please read the
@@ -164,7 +262,7 @@ corresponding licenses are available in the installed
   - latest xPack release
 [![Github All Releases](https://img.shields.io/github/downloads/xpack-dev-tools/riscv-none-elf-gcc-xpack/latest/total.svg)](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/)
   - all xPack releases [![Github All Releases](https://img.shields.io/github/downloads/xpack-dev-tools/riscv-none-elf-gcc-xpack/total.svg)](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/)
-  - previous `riscv-none-embed-gcc` releases [![Github All Releases](https://img.shields.io/github/downloads/xpack-dev-tools/riscv-none-embed-gcc-xpack/total.svg)](https://github.com/xpack-dev-tools/riscv-none-embed-gcc-xpack/releases/)
+  - previous `riscv-none-elf-gcc` releases [![Github All Releases](https://img.shields.io/github/downloads/xpack-dev-tools/riscv-none-elf-gcc-xpack/total.svg)](https://github.com/xpack-dev-tools/riscv-none-elf-gcc-xpack/releases/)
   - [individual file counters](https://somsubhra.github.io/github-release-stats/?username=xpack-dev-tools&repository=riscv-none-elf-gcc-xpack) (grouped per release)
 - npmjs.com [`@xpack-dev-tools/riscv-none-elf-gcc`](https://www.npmjs.com/package/@xpack-dev-tools/riscv-none-elf-gcc/) xPack
   - latest release, per month
