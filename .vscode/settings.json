@@ -2,6 +2,11 @@
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
   "editor.stablePeek": true,
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/node_modules/*/**": true,
+    "**/build/**": true
+  },
   "markdownlint.config": {
     "MD041": false
   },
@@ -54,6 +59,7 @@
     "imfc",
     "imfd",
     "imfdc",
+    "libbz",
     "libcc",
     "libcrypt",
     "libcrypto",
@@ -74,12 +80,15 @@
     "libsqlite",
     "libstdc",
     "libz",
+    "libzstd",
     "linux",
     "liquidjs",
+    "loglevel",
     "mabi",
     "mcmodel",
     "medany",
     "multilib",
+    "multilibs",
     "ncipollo",
     "newlib",
     "nosys",
@@ -87,6 +96,7 @@
     "npmjs",
     "objcopy",
     "objdump",
+    "patchelf",
     "platlibdir",
     "plugins",
     "postversion",
@@ -98,7 +108,10 @@
     "runpath",
     "sifive",
     "upstreamed",
+    "userdel",
     "wksi",
+    "workdir",
+    "writable",
     "xattr",
     "xbbla",
     "xbbla32",
@@ -108,6 +121,7 @@
     "xbbmi",
     "xpack",
     "xpacks",
-    "zicsr"
+    "zicsr",
+    "zstd"
   ]
 }
